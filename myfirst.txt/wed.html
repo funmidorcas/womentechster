@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock</title>
+</head>
+<style>
+    body{
+        background: rgb(11, 11, 31);
+    }
+.grid{
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+    gap:20px;
+    justify-self: center;
+    background: rgb(17, 17, 27);
+    color:white;
+}
+</style>
+<body>
+    <div class="grid">
+
+<button class="btn">Run</button>
+<button class="btn2" disabled>Jog</button>
+<button class="btn3" disabled>Dance</button>
+<button class="btn4" disabled>Sleep</button>
+
+
+
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  let btnn = document.querySelector(".btn");   // Run
+  let btn = document.querySelector(".btn2");   // Jog
+  let btne = document.querySelector(".btn3");  // Dance
+  let btnr = document.querySelector(".btn4");  // Sleep
+
+  let isDone = true;
+  const array = [];
+
+  btn.disabled = true;
+  btne.disabled = true;
+  btnr.disabled = true;
+
+  btnn.addEventListener("click", function () {
+    array.push("run");
+    alert(array);
+    btn.disabled = false; // ✅ unlock jog button
+
+    btn.addEventListener("click", function () {
+      array.push("jog");
+      alert(array);
+      btne.disabled = false; // ✅ unlock dance button
+
+      btne.addEventListener("click", function () {
+        array.push("dance");
+        alert(array);
+
+        if (array.includes("run") && array.includes("jog")) {
+          btnr.disabled = false; // ✅ unlock sleep button
+          btnr.addEventListener("click", function () {
+            array.push("sleep");
+            alert("YOU CAN SLEEP 😴");
+            alert(array);
+          });
+} else {
+    alert("No sleep for you");
+        }
+      });
+    });
+  });
+});
+
+    
+    
+    </script>
+</body>
+</html>
