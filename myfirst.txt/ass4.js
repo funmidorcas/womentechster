@@ -7,12 +7,13 @@ function addItem(id, name, price, quantity){
 }
 
 addItem("bag", "jack", "#20", 10)
-addItem("bag", "mark", "#30", 15)
+addItem("tap", "mark", "#30", 15)
 addItem("bug", "ann", "#40", 30)
 addItem("shoe", "mia", "#50", 5)
 
 function removeItem(id, name, price, quantity){
     const remove = {id: id, name:name, price:price, quantity:quantity}
+    //  inventory.splice(1,1,{id:"net", name:"john", price: "#100",quaantity: 70})
      inventory.pop(remove)
      console.log(inventory)
 }
@@ -22,12 +23,18 @@ console.log(inventory)
 
 function updateItem(id, name, price, quantity){
     const update = {id: id, name:name, price:price, quantity:quantity}
-  const index = inventory.findIndex(inventory => inventory.name === "mark")
+  const index = inventory.findIndex(inventory => inventory.name === name)
      if(index !== -1){  // we use if( == 1 or 2) to specific go to the index number otherwise index !== -1 will find it itself
-     inventory[index].id = update    // or  .splice() to update
+     inventory[index].name = update    // or  .splice() to update
     // inventory.splice(1,0, update)
     console.log(inventory)
-     }
+//updateItem("rice", "mark", "#20", 40)
+//addItem("tap", "mark", "#30", 15)
+}
+else{
+  console.log(`no match`)
+
+  }
 
 
      inventory.find(function (inventory){ 
@@ -40,33 +47,41 @@ console.log("update this product")
     }
 })
 
-     inventory.find(function (inventory){ 
-if(inventory.name === "ann" && inventory.id ==="bug"){
-    console.log("yes")
-}
-else{
-    console.log("no")
-}
-     })
-
-
-}
-
-
-updateItem("rice", "deli", "#20", 40)
-
-// if(inventory.name === "mark" || inventory.id ==="bag"){
+// my own way
+//   inventory.find(function (inventory){ 
+// if(inventory.name === "ann" && inventory.id ==="bug"){
 //     console.log("yes")
 // }
-
-
-// const user = ["see", "nose", "mark"]
-// user.splice(1,1,"self")
-// console.log(user)
-
-// function generateReport(){
-
+// else{
+//     console.log("no")
 // }
+//      })
+
+ // chatgbt
+       inventory.forEach(function (inventory) {
+    if (inventory.name === "ann" && inventory.id === "tap") {
+      console.log("Match found:", inventory);
+    } else {
+      console.log("No match:", inventory);
+    }
+  });
+
+
+}
+
+
+updateItem("rice", "mark", "#20", 40)
+// updateItem("bag", "jack", "#20", 10)
+// updateItem("tap", "mark", "#30", 15)
+// updateItem("bug", "ann", "#40", 30)
+// updateItem("shoe", "mia", "#50", 5)
+
+
+
+
+
+
+
 
 
 let users = [
@@ -77,7 +92,6 @@ let users = [
 
 function generateReport(userArray) {
 let report = "User Report:" 
-  
   userArray.forEach((user, index) => {
     report += `  ${index + 1}.  Name: user.name, Age:${user.age}`
   });
@@ -90,10 +104,17 @@ generateReport(users);
 
 function generateItem(inventory){
     let report = "inventory report:"
-    inventory.forEach((inventory, index) => {
-        report += ` ${index +1}. inventory:${inventory.id}, inventory:${inventory.name}, inventory:${inventory.price}, inventory:${inventory.quantity}`
+
+inventory.forEach(function (inventory, index){
+          report += ` ${index +1}. inventory:${inventory.id}, inventory:${inventory.name}, inventory:${inventory.price}, inventory:${inventory.quantity}`
         console.log(report)
-    })
+
+})
+
+    // inventory.forEach((inventory, index) => {
+    //     report += ` ${index +1}. inventory:${inventory.id}, inventory:${inventory.name}, inventory:${inventory.price}, inventory:${inventory.quantity}`
+    //     console.log(report)
+    // })
 }
 generateItem(inventory)
 
@@ -111,6 +132,7 @@ const mixedArray = [
   "orange"
 ];
 console.log(mixedArray[5].age)
+
 mixedArray.forEach(item => {
   if (typeof item === "object" && !Array.isArray(item) && item !== null) {
     console.log("Found object:", item);
@@ -150,3 +172,7 @@ mixedArray[6].forEach(function(num) {
 });
 mixedArray[6].push(4);
 console.log(mixedArray[6]);
+
+// const user = ["see", "nose", "mark"]
+// user.splice(1,1,"self")
+// console.log(user)

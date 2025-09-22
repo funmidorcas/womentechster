@@ -19,7 +19,7 @@ const addBankAccount = (name, balance, accountNo) => {
                        return account;
                      };
          const findAccountIndex = (accountNumber) => { 
-         const accountIndex = bankAccounts.findIndex(function (acc) {  
+         const accountIndex = bankAccounts.findIndex(function (acc) {  //.findindex is here
    if (acc.accountNumber === accountNumber) { 
           return true;   
           }   
@@ -44,4 +44,22 @@ const addBankAccount = (name, balance, accountNo) => {
                                        return 
                                        {   
                                           amount: amount,  
-                                             description: ${bankAccounts[senderAccountIndex].name} transfered ${amount} to ${bankAccounts[receiverAccountIndex].name},     date: new Date(),   }; } function bankTransfer2(sender, receiver, amount) {   const senderAccount = findAccountByName(sender);   const receiverAccount = findAccountByName(receiver);   if (senderAccount == undefined) {     return "Invalid account number for sender";   }   if (receiverAccount == undefined) {     return "Invalid account number for Receiver";   }   if (senderAccount.balance < amount) {     return ${senderAccount.name} has Insufficient balance;   }   receiverAccount.balance += amount;   senderAccount.balance -= amount;   return {     amount: amount,     description: ${senderAccount.name} transfered ${amount} to ${receiverAccount.name},     date: new Date(),   }; } console.log(bankAccounts.length, "before adding");     addBankAccount("Luke", 2000, "34567898");     addBankAccount("Princess", 100000, "09876545"); console.log(bankAccounts.length, "after adding"); console.log(bankAccounts, "DAtABASE"); const status = bankTransfer("34567898", "09876545", 100); console.log({ message: status }); // Q1. Implement a simple add to cart feature. // Q2. Implement a simple todo items list  this is his modified version
+                                             description: ${bankAccounts[senderAccountIndex].name} 
+                                             transfered ${amount} to ${bankAccounts[receiverAccountIndex].name}, 
+                                                 date: new Date(),  
+                                                 };
+                                                 } function bankTransfer2(sender, receiver, amount) { 
+                                                    const senderAccount = findAccountByName(sender); 
+                                                      const receiverAccount = findAccountByName(receiver); 
+                                                        if (senderAccount == undefined) {   
+                                                            return "Invalid account number for sender";  
+                                                           }   if (receiverAccount == undefined) {  
+                                                               return "Invalid account number for Receiver"; 
+                                                                }  
+                                                                 if (senderAccount.balance < amount) { 
+                                                                      return ${senderAccount.name} has Insufficient balance; 
+                                                                      } 
+                                                                        receiverAccount.balance += amount; 
+                                                                          senderAccount.balance -= amount;  
+                                                                           return {  
+                                                                               amount: amount,     description: ${senderAccount.name} transfered ${amount} to ${receiverAccount.name},     date: new Date(),   }; } console.log(bankAccounts.length, "before adding");     addBankAccount("Luke", 2000, "34567898");     addBankAccount("Princess", 100000, "09876545"); console.log(bankAccounts.length, "after adding"); console.log(bankAccounts, "DAtABASE"); const status = bankTransfer("34567898", "09876545", 100); console.log({ message: status }); // Q1. Implement a simple add to cart feature. // Q2. Implement a simple todo items list  this is his modified version
