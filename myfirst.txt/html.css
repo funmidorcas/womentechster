@@ -1,0 +1,120 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.two-side{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    margin-inline: auto;
+    background: rgb(8, 8, 17);
+    padding-block: 10px;
+    /* height: 80vh; */
+    height: 450px;
+    border-radius: 10px;
+    margin-block: 100px;
+    
+}
+.empty{
+    background-image: url(https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=1024x1024&w=0&k=20&c=z8_rWaI8x4zApNEEG9DnWlGXyDIXe-OmsAyQ5fGPVV8=);
+    background-repeat:  no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    aspect-ratio: 1;
+}
+.arrowbtn{
+    border-radius: 20px;
+    background: transparent;
+    padding: 5px;
+    border: 1px solid;
+    
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-inline: 10px;
+}
+
+
+
+/* hr */
+.work{
+    width: 40%;
+margin-block: 50px;
+}
+h1{
+    color: #fff;
+    margin-bottom: 10px;
+}
+.already{
+margin-bottom: 15px;
+color: rgb(124, 121, 124);
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.two-input{
+    display: flex;
+    gap:10px;
+    margin-bottom: 10px;
+}
+#name{
+   width: 38%;
+    padding-left: 5px;
+    padding-block: 5px;
+    border-radius: 5px;
+    border:1px solid rgb(14, 9, 22);
+    background: rgb(17, 14, 31);
+}
+#email,#number, .create{
+    width: 80%;
+    margin-block: 5px;
+    padding-left: 5px;
+    padding-block: 5px;
+    border:1px solid rgb(14, 9, 22);
+    background: rgb(17, 14, 31);
+    border-radius: 5px;
+
+}
+.create{
+    display: flex;
+    justify-content: center;
+    background: violet;
+
+}
+.line{
+    display: flex;
+    gap:10px;
+    margin-block: 10px;
+
+}
+hr{
+    width: 25%;
+    height: 1px;
+    
+}
+.or{
+    margin-top: -8px;
+}
+.google{
+display:flex;
+gap: 20px;
+justify-content: center;
+
+}
+.goglogo, button{
+    background: #fff;
+    border: none;
+    display: flex;
+    gap:5px;
+    padding: 3px;
+    border-radius: 10px;
+}

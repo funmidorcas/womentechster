@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Network Loading</title>
+  <link rel="stylesheet" href="style.css">
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+  font-family: sans-serif;
+  display: flex;
+  gap:50px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader-container {
+  text-align: center;
+}
+.spin{
+      border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: gray;
+  border: 10px solid gray;
+}
+.spinner {
+  border: 10px solid black;
+  border-top: 10px dashed transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+  padding: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+#buttons{
+    display: flex;
+    flex-direction: column;
+
+}
+#show{
+    margin-block: 50px;
+}
+</style>
+</head>
+
+<body>
+
+  <div class="loader-container">
+    <div class="spinner"><div class="spin"></div></div>
+    <p>Loading... Please wait</p>
+  </div>
+  <div class="buttons">
+    <div class="btn">
+        <button class="plus">+</button>
+        <span class="show">0</span>
+        <button class="minus">-</button>
+    </div>
+    <div class="btn">
+        <button class="plus">+</button>
+        <span class="show">0</span>
+        <button class="minus">-</button>
+    </div>
+    <div class="btn">
+        <button class="plus">+</button>
+        <span class="show">0</span>
+        <button class="minus">-</button>
+    </div>
+    <button class="submit">submit</button>
+    <p class="cartt">cart:<span class="cart"></cart:span></p>
+  </div>
+  <script>
+let plus = document.querySelectorAll(".plus")
+let minus = document.querySelectorAll(".minus")
+let show = document.querySelectorAll(".show")
+let submit = document.querySelector(".submit")
+let cart = document.querySelector(".cart")
+let count = 0
+let cartTotal = 0
+ plus.forEach(function (btn, index){
+
+ btn.addEventListener("click", function () {
+    count++
+ show[index].textContent = count;
+  
+  })
+})  
+ minus.forEach(function (bt, index){
+
+ bt.addEventListener("click", function () {
+ if ( count > 0){
+        count--
+ show[index].textContent = count;
+
+ }
+})
+})  
+
+submit.addEventListener("click",function(){
+ if(count > 0){
+ cartTotal +=count
+cart.textContent = cartTotal
+ cartTotal.textContent = 0
+   }
+
+
+
+})
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
+  <!-- </script> -->
+
+
+
